@@ -30,7 +30,7 @@ Sistem pengenalan Bahasa Isyarat Indonesia (BISINDO) berbasis computer vision (*
 
 ### 2. Pipeline Utama Level 1 — Abjad Statis (Gunakan Ini untuk Huruf A–Z)
 * **`collect_alphabet.py`** — Script perekaman koordinat tangan untuk huruf abjad BISINDO (1 dan 2 tangan).
-* **`clean_dataset.py`** — Membersihkan *outlier* dan menormalisasi dataset abjad mentah (`dataset_abjad_2hands.csv`) menjadi `dataset_abjad_optimal.csv`.
+* **`clean_dataset.py`** — Menghapus semua dataset di abjad tertentu pada csv
 * **`train_model.py`** — Melatih model klasifikasi abjad dari `dataset_abjad_optimal.csv` dan menghasilkan `model_abjad.pkl`.
 * **`test_realtime.py`** — Aplikasi kamera untuk menguji deteksi huruf A–Z secara *real-time* menggunakan `model_abjad.pkl`.
 * **`dataset_abjad_optimal.csv`** — Dataset bersih yang digunakan untuk training model abjad.
@@ -47,13 +47,16 @@ Sistem pengenalan Bahasa Isyarat Indonesia (BISINDO) berbasis computer vision (*
 
 ---
 
-## Setup Environment & Cara Menjalankan
+## Prasyarat & Setup Environment
 
-Pastikan versi library terkunci agar tidak terjadi konflik antara MediaPipe, OpenCV, dan NumPy:
+* **Versi Python Direkomendasikan:** **Python 3.10.11** (kompatibel pada rentang Python `3.9` – `3.11`; hindari Python `3.12+` karena ketidakcocokan *wheel* MediaPipe dan Protobuf).
 
 ```powershell
-# Aktifkan virtual environment
+# 1. Buat virtual environment menggunakan Python 3.10.11
+py -3.10 -m venv venv
+
+# 2. Aktifkan virtual environment (Windows PowerShell)
 .\venv\Scripts\Activate.ps1
 
-# Install dependensi dengan versi kompatibel
+# 3. Install dependensi dengan versi terkunci agar tidak bentrok
 pip install numpy==1.26.4 protobuf==3.20.3 opencv-python==4.10.0.84 mediapipe==0.10.9 scikit-learn pandas
