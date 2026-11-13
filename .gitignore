@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+*.pyc
+dataset_abjad_2hands.csv
+dataset_abjad_optimal.csv
+dataset_kata_level2.csv
+model_abjad.pkl
+model_kata_level2.pkl
